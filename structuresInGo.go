@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func ArrayFiller(arr []string) {
@@ -12,17 +13,18 @@ func ArrayFiller(arr []string) {
 
 }
 func ArraySwitcher(_arr []string) {
-	_begin := 0
-	_tail := len(_arr) - 1
-	var _temp string
 
 	var arr = _arr[0:]
-	for arr[_begin] != arr[_tail] {
-		_temp = arr[_begin]
-		arr[_begin] = arr[_tail]
-		arr[_tail] = _temp
-		_tail--
-		_begin++
+	for left, right := 0, len(arr)-1; left < right; left, right = left+1, right-1 {
+		arr[left], arr[right] = arr[right], arr[left]
+	}
+}
+
+func nExponentShower(n float64) {
+	if n > 0 {
+		for i := float64(1); i <= n; i++ {
+			fmt.Print(math.Pow(2, i), ", ")
+		}
 	}
 }
 
@@ -36,7 +38,8 @@ func main() {
 	fmt.Println("Array Switcher: ")
 	fmt.Println(toDoList)
 	ArraySwitcher(toDoList[:])
-	fmt.Print(toDoList)
+	fmt.Println(toDoList)
+	nExponentShower(5)
 	// for index := range toDoList {
 	// 	fmt.Printf("%d. %s\n", index, toDoList[index])
 	// }
