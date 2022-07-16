@@ -6,9 +6,9 @@ import (
 	"math"
 )
 
-func main() {
-	printCircleAreaIs(22 * 33)
-}
+// func main() {
+// 	printCircleAreaIs(22 * 33)
+// }
 
 func printCircleAreaIs(circleRad int) {
 
